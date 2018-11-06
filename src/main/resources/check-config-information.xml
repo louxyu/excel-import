@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE excel SYSTEM "./check.dtd">
+<excel id="information" name="信息上报">
+    <sheet name="人员信息" index="0" count="9" rowStartIndex="1" colStartIndex="1" >
+        <col index="1" name="happen_date"  colName="发生时间" >
+            <notNull>true</notNull>
+            <regexs>
+                <regex errorMsgOrCode="{sheetName}{t}第{rowNum}行{t}{colName}(第{defaultColName}列){t}输入的「{cellValue}」格式不正确，正确格式为：yyyy-MM-dd或yyyy/MM/dd或yyyy年MM月dd">^([1-9]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]))|([1-9]\d{3}/(0[1-9]|1[0-2])/(0[1-9]|[1-2][0-9]|3[0-1]))|([1-9]\d{3}年(0[1-9]|1[0-2])月(0[1-9]|[1-2][0-9]|3[0-1]))$</regex>
+            </regexs>
+        </col>
+
+        <col index="2" name="title"  colName="标题">
+            <notNull>true</notNull>
+        </col>
+
+        <col index="3" name="link"  colName="链接">
+            <notNull>true</notNull>
+            <regexs>
+                <regex errorMsgOrCode="{sheetName}{t}第{rowNum}行{t}{colName}(第{defaultColName}列){t}输入的「{cellValue}」格式不正确，缺少协议头(http://或https://)，正确格式为：http://www.wx.com或https://www.wx.com">^https?://.*</regex>
+            </regexs>
+        </col>
+
+        <col index="4" name="source_unit"  colName="信息来源" >
+
+        </col>
+
+        <col index="5" name="type"  colName="类别" >
+        </col>
+
+        <col index="6" name="submit_unit"  colName="首报单位或人员" >
+        </col>
+
+        <col index="7" name="on_duty_person"  colName="记录员" >
+        </col>
+
+        <col index="8" name="content"  colName="主要内容" >
+        </col>
+
+        <col index="9" name="peliminary_judgment"  colName="初步研判" >
+            <maxLength length="1000"></maxLength>
+        </col>
+    </sheet>
+</excel>

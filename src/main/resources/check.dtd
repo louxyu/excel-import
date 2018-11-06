@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!ELEMENT excel (sheet+)>
+<!ELEMENT sheet (col+)>
+<!ELEMENT col (notNull?,(length|maxLength|minLength)?,type?,regexs?)>
+
+<!ELEMENT notNull (#PCDATA)>
+<!ELEMENT length EMPTY>
+<!ELEMENT maxLength EMPTY>
+<!ELEMENT minLength EMPTY>
+<!ELEMENT type EMPTY>
+<!ELEMENT regexs (regex+)>
+<!ELEMENT regex (#PCDATA)>
+
+<!ATTLIST excel id CDATA #REQUIRED>
+<!ATTLIST excel name CDATA #REQUIRED>
+
+<!ATTLIST sheet index CDATA #REQUIRED>
+<!ATTLIST sheet name CDATA #REQUIRED>
+<!ATTLIST sheet className CDATA #IMPLIED>
+<!ATTLIST sheet manageClassName CDATA #IMPLIED>
+<!ATTLIST sheet count CDATA #REQUIRED>
+<!ATTLIST sheet rowStartIndex CDATA #REQUIRED>
+<!ATTLIST sheet colStartIndex CDATA #REQUIRED>
+
+<!ATTLIST col index CDATA #REQUIRED>
+<!ATTLIST col name CDATA #REQUIRED>
+<!ATTLIST col colName CDATA #REQUIRED>
+
+<!ATTLIST notNull errorMsgOrCode CDATA #IMPLIED>
+
+<!ATTLIST length maxLength CDATA #REQUIRED>
+<!ATTLIST length minLength CDATA #REQUIRED>
+<!ATTLIST length errorMsgOrCode CDATA #IMPLIED>
+
+<!ATTLIST maxLength length CDATA #REQUIRED>
+<!ATTLIST maxLength errorMsgOrCode CDATA #IMPLIED>
+
+<!ATTLIST minLength length CDATA #REQUIRED>
+<!ATTLIST minLength errorMsgOrCode CDATA #IMPLIED>
+
+<!ATTLIST type name CDATA #REQUIRED>
+<!ATTLIST type errorMsgOrCode CDATA #IMPLIED>
+
+<!ATTLIST regex errorMsgOrCode CDATA #IMPLIED>
